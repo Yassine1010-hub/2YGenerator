@@ -1,6 +1,7 @@
- 
+
 <?php
 
+//nous avons utilisé la bibliothéque TCPDF de Nicolaasuni: https://github.com/tecnickcom/TCPDF
 @require_once('view_motivation.php');
 @require_once('modele_motivation.php');
 @require_once('classes/connexion.php');
