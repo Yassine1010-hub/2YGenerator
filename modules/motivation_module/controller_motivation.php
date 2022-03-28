@@ -26,7 +26,7 @@ class ControllerMotivation extends Connexion{
     	?>
     	<div class="cv">
             <div class="name">
-                <h4><?php echo strtoupper($_POST['name']) . ' ' . $_POST['surname'] ?></h4>
+                <h4><?php echo strtoupper($_POST['surname']) . ' ' . $_POST['name'] ?></h4>
                 <h3> <?php echo $_POST['target'] ?></h3>
             </div>
 
@@ -41,12 +41,14 @@ class ControllerMotivation extends Connexion{
             <div class="xp">
                 <div class="xp-1 xp-card">
                      <h4> <strong>Mes expériences:</h4>
-                    <h4> <?php echo "-".$_POST['title-xp-1'].":" ?></h4>
-                    <p> <?php echo "-".$_POST['text-xp-1'] ?></p>
+                    <h4> <?php echo $_POST['title-xp-1'].":" ?></h4>
+                     <h5> Lieu :</h5>
+                    <p> <?php echo $_POST['text-xp-1'] ?></p>
 
                 </div>
                 <div class="xp-2 xp-card">
                     <h4> <?php echo $_POST['title-xp-2'] ?></h4>
+                    <h5> Lieu :</h5>
                     <p> <?php echo $_POST['text-xp-2'] ?></p>
                 </div>
             </div>
@@ -54,10 +56,12 @@ class ControllerMotivation extends Connexion{
                  <h4> <strong>Mes formations:</h4>
                 <div class="school-1 school-card">
                     <h5> <?php echo $_POST['title-form-1'] ?></h5>
+                     <h5> Lieu :</h5>
                     <p> <?php echo $_POST['text-form-1'] ?></p>
                 </div>
                 <div class="school-2 school-card">
                     <h4> <?php echo $_POST['title-form-2'] ?></h4>
+                     <h5> Lieu :</h5>
                     <p> <?php echo $_POST['text-form-2'] ?></p>
                 </div>
                 <div class="interest-card">
