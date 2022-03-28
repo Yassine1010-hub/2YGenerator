@@ -23,6 +23,10 @@ class Module{
             case 'add' :
                 $this->controller->add();
                 break;
+            case 'myCv' :
+                echo 'plpl';
+                $this->controller->myCv($_GET['name']);
+                break;
         }
         
     }

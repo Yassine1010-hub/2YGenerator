@@ -1,4 +1,4 @@
-
+ 
 <?php
 
 //nous avons utilisé la bibliothéque TCPDF de Nicolaasuni: https://github.com/tecnickcom/TCPDF
@@ -21,7 +21,41 @@ class ControllerMotivation extends Connexion{
     public function generator(){
     	$this->view->generator();
     }
+
+
+
+    public function myCv($name){
+        echo "okok";
+
+        $filename = 'cv-'.$name.'.pdf';
+
+        echo $filename;
+
+        // Header content type
+        header('Content-type: application/pdf');
+          
+        header('Content-Disposition: inline; filename="' . $filename . '"');
+          
+        header('Content-Transfer-Encoding: binary');
+          
+        header('Accept-Ranges: bytes');
+          
+        // Read the file
+        @readfile($filename);
+       
+    }
+
+
+
     public function add(){
+        $uri  = "cv-".$_POST['name'];
+
+        $sql= parent::$bdd->prepare("INSERT into CV(nomCv, URI)  VALUES (?,?)");
+        var_dump($uri);
+
+
+        $sql->execute(array($_POST['name'], $uri));
+
         $this->model->addInfo();
         ob_start();
     	?>
@@ -73,6 +107,7 @@ class ControllerMotivation extends Connexion{
             </div>
     	</div>
 
+
         
 
     	<?php
@@ -123,8 +158,11 @@ class ControllerMotivation extends Connexion{
     //Close and output PDF document
 
     ob_clean();
-    $pdf->output("cv.pdf","I");
-       
+    $pdf->output("/home/etudiants/info/ymeddour/local_html/cv-".$_POST['name'].".pdf","FD");
+
+
 
     }
+
+
 }
